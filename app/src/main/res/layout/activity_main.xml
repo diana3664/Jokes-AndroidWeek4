@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/imageView"
+        android:src="@drawable/mainpic"
+        android:scaleType="centerCrop" />
+
     <TextView
         android:id="@+id/appNameTextView1"
         android:layout_width="wrap_content"
