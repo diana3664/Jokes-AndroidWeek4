@@ -20,9 +20,9 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif"
         android:text="JOKE"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="50sp"
-        android:layout_marginTop="400dp"
+        android:layout_marginTop="430dp"
         android:layout_marginLeft="100dp"
         android:textStyle="bold" />
 
@@ -33,10 +33,22 @@
         android:layout_marginBottom="50dp"
         android:fontFamily="sans-serif"
         android:text="JOKES"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="50sp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="500dp"
         android:layout_marginLeft="170dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/appNameTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:text="(: p"
+        android:textColor="@color/black"
+        android:textSize="60sp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="300dp"
         android:textStyle="bold" />
 
     <Button
@@ -44,7 +56,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
-        android:layout_marginTop="560dp"
+        android:layout_marginTop="600dp"
         android:background="@color/orange_200"
         android:text="Sign Up"
         android:textSize="20sp" />
