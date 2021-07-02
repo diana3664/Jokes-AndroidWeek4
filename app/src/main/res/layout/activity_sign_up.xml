@@ -10,11 +10,11 @@
         android:id="@+id/signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ribeye_marrow"
         android:text="Sign Up for Jokes"
         android:textColor="@color/black"
         android:textSize="30sp"
-        android:layout_marginTop="20dp"
         android:textStyle="bold" />
 
     <EditText

@@ -17,38 +17,38 @@
         android:id="@+id/appNameTextView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="430dp"
         android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/ribeye"
         android:text="JOKE"
         android:textColor="@color/white"
         android:textSize="50sp"
-        android:layout_marginTop="430dp"
-        android:layout_marginLeft="100dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/appNameTextView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="170dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="50dp"
-        android:fontFamily="sans-serif"
+        android:fontFamily="@font/ribeye"
         android:text="JOKES"
         android:textColor="@color/white"
         android:textSize="50sp"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="170dp"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/appNameTextView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/ribeye_marrow"
         android:text="(: p"
         android:textColor="@color/black"
         android:textSize="60sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="300dp"
         android:textStyle="bold" />
 
     <Button
