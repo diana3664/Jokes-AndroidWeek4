@@ -31,7 +31,7 @@ public class JokeList extends AppCompatActivity {
         setContentView(R.layout.activity_joke_list);
         ButterKnife.bind(this);
 
-        ArrayAdapter  adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,jokes);
+        MyJokesArrayAdapter  adapter = new MyJokesArrayAdapter(this, android.R.layout.simple_list_item_1,jokes);
         mListView.setAdapter(adapter);
 
         Intent intent = getIntent();
