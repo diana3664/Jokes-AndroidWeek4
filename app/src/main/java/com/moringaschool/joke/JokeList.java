@@ -18,11 +18,8 @@ public class JokeList extends AppCompatActivity {
     @BindView(R.id.jokeView) TextView mJokeView;
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] jokes = new String[] {"What did the sniper say to his girlfirend after they broke up? I wont miss you ", "Mother's Bistro",
-            "Life of Pie", "Screen Door", "Luc Lac", "Sweet Basil",
-            "Slappy Cakes", "Equinox", "Miss Delta's", "Andina",
-            "Lardo", "Portland City Grill", "Fat Head's Brewery",
-            "Chipotle", "Subway"};
+    private String[] jokes = new String[] {"Animals ", "Family",
+            "Knock Knock", "Kids", "blonde", "Dad jokes", "Random","Create your own Joke"};
 
 
     @Override
@@ -36,7 +33,7 @@ public class JokeList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        mJokeView.setText("Hello" +" "+ name+",Jokes to start you off:" );
+        mJokeView.setText("Hello" +" "+ name+",Joke Categories to start you off (:P" );
         ButterKnife.bind(this);
     }
 }

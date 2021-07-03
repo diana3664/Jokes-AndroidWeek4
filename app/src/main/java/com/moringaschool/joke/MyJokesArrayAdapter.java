@@ -16,7 +16,7 @@ public MyJokesArrayAdapter(Context mContext,int resource,String[] mJokes){
 @Override
     public Object getItem(int position){
     String jokes = mJokes[position];
-    return String.format("joke of the day : %s",jokes);
+    return String.format("Joke Category  : %s",jokes);
 }
 @Override
     public int getCount(){
