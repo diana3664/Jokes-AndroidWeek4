@@ -27,7 +27,7 @@
         android:layout_toEndOf="@+id/editTextTextPersonName2"
         android:background="@color/orange_200"
         android:fontFamily="sans-serif"
-        android:hint="Name.."
+        android:hint="..."
         android:textSize="30sp" />
 
     <EditText
@@ -40,7 +40,7 @@
         android:layout_toEndOf="@+id/editTextTextPersonName3"
         android:background="@color/orange_200"
         android:fontFamily="sans-serif"
-        android:hint="Email.."
+        android:hint="..."
         android:inputType="textEmailAddress"
         android:textSize="30sp" />
 
@@ -58,11 +58,11 @@
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="100dp"
         android:layout_marginTop="115dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="5dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name"
+        android:text="First Name"
         android:textStyle="bold"/>
 
     <TextView
@@ -73,8 +73,8 @@
         android:width="100dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:paddingLeft="20dp"
-        android:text="Email"
+        android:paddingLeft="5dp"
+        android:text="Second Name"
         android:textStyle="bold"/>
 
     <EditText
