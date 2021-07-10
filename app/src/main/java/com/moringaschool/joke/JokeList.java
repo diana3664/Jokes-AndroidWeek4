@@ -18,8 +18,8 @@ public class JokeList extends AppCompatActivity {
     @BindView(R.id.jokeView) TextView mJokeView;
     @BindView(R.id.listView) ListView mListView;
 
-    private String[] jokes = new String[] {"Animals ", "Family",
-            "Knock Knock", "Kids", "blonde", "Dad jokes", "Random","Create your own Joke"};
+    private String[] jokes = new String[] {"Any ", "Programming",
+            "Miscellaneous", "Dark", "Pun", "Spooky", "Christmas"};
 
 
     @Override
