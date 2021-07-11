@@ -1,4 +1,7 @@
-package com.moringaschool.joke;
+package com.moringaschool.joke.network;
+
+import com.moringaschool.joke.Constants;
+import com.moringaschool.joke.network.JokeApi;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

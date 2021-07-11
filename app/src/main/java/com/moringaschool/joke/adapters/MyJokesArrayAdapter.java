@@ -1,4 +1,4 @@
-package com.moringaschool.joke;
+package com.moringaschool.joke.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

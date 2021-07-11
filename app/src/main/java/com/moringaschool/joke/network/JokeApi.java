@@ -1,4 +1,4 @@
-package com.moringaschool.joke;
+package com.moringaschool.joke.network;
 
 import java.util.List;
 

@@ -54,7 +54,7 @@ public class JokeList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String name = intent.getStringExtra("name");
-        mJokeView.setText("Hello" +" "+ name+",Joke Categories to start you off (:P" );
+        mJokeView.setText("Hello" +" "+ name+" " +",Joke Categories Include:" );
         ButterKnife.bind(this);
 
 //        JokeApi client = JokeClient.getClient();
