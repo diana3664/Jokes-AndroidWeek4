@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -47,8 +48,8 @@ public class JokeList extends AppCompatActivity {
         categories.add("Christmas");
 
 
-
-        adapter = new CategoryListAdapter(categories);
+        Context mContext;
+        adapter = new CategoryListAdapter(categories );
         ButterKnife.bind(this);
         mCatList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         mCatList.setAdapter(adapter);
@@ -62,7 +63,7 @@ public class JokeList extends AppCompatActivity {
 
 
         FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment());
+        FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(getResources().getString(R.string.Url)+"Any"));
         transaction.commitNow();
 
 

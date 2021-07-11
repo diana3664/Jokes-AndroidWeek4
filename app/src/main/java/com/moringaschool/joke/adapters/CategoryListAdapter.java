@@ -9,9 +9,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringaschool.joke.JokeDetailFragment;
 import com.moringaschool.joke.JokeList;
 import com.moringaschool.joke.R;
 
@@ -24,9 +28,8 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
     List<String> mCategory;
     int positionOfCard;
-    Context mContext; //context
 
-   public CategoryListAdapter(List<String> category){
+    public CategoryListAdapter(List<String> category){
        this.mCategory=category;
 
    }
@@ -75,6 +78,31 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
            notifyItemChanged(positionOfCard);
            positionOfCard = getAdapterPosition();
            notifyItemChanged(positionOfCard);
+
+           if(mCategory.get(positionOfCard).equals("Any")){
+               AppCompatActivity activity = (AppCompatActivity) v.getContext();
+
+               FragmentManager manager = activity.getSupportFragmentManager();
+               FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Any"));
+               transaction.commitNow();           }
+            if(mCategory.get(positionOfCard).equals("Programming")){
+                Toast.makeText(v.getContext(),"Programming category selected",Toast.LENGTH_SHORT).show();
+            }
+            if(mCategory.get(positionOfCard).equals("Miscellaneous")){
+                Toast.makeText(v.getContext(),"Miscellaneous category selected",Toast.LENGTH_SHORT).show();
+            }
+            if(mCategory.get(positionOfCard).equals("Dark")){
+                Toast.makeText(v.getContext(),"Dark category selected",Toast.LENGTH_SHORT).show();
+            }
+            if(mCategory.get(positionOfCard).equals("Pun")){
+                Toast.makeText(v.getContext(),"Pun category selected",Toast.LENGTH_SHORT).show();
+            }
+            if(mCategory.get(positionOfCard).equals("Spooky")){
+                Toast.makeText(v.getContext(),"Spooky category selected",Toast.LENGTH_SHORT).show();
+            }
+            if(mCategory.get(positionOfCard).equals("Christmas")){
+                Toast.makeText(v.getContext(),"Christmas category selected",Toast.LENGTH_SHORT).show();
+            }
 
         }
     }
