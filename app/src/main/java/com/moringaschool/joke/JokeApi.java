@@ -7,9 +7,9 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface JokeApi {
-    @GET("categories")
-    Call<CategoriesSearchResponse> getCategories(
-            @Query("categories") String categories
-
-    );
+//    @GET("categories")
+//    Call<CategoriesSearchResponse> getCategories(
+//            @Query("categories") String categories
+//
+//    );
 }

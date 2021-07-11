@@ -15,73 +15,14 @@
             android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="117dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/red_200"
-            android:paddingTop="30dp"
             android:paddingLeft="100sp"
+            android:paddingTop="30dp"
             android:text="TextView"
             app:layout_constraintTop_toTopOf="parent"
-            tools:layout_editor_absoluteX="16dp" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="100sp"
-            android:background="@color/yellow_200"
-            android:paddingTop="30dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="100sp"
-            android:background="@color/green_200"
-            android:paddingTop="30dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="100sp"
-            android:background="@color/blue_200"
-            android:paddingTop="30dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginTop="24dp"
-            android:paddingLeft="100sp"
-            android:background="@color/indigo_200"
-            android:paddingTop="30dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="match_parent"
-            android:layout_height="117dp"
-            android:layout_marginTop="12dp"
-            android:paddingLeft="100sp"
-            android:background="@color/violet_200"
-            android:paddingTop="30dp"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
+            tools:layout_editor_absoluteX="0dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

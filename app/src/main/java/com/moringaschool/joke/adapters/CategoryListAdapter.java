@@ -18,12 +18,12 @@ import butterknife.ButterKnife;
 
 public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.CategoryViewHolder> {
 
-    List<String> category;
+    List<String> mCategory;
     Context mContext; //context
 
-   public CategoryListAdapter(Context context,List<String> category){
-       this.category=category;
-       mContext = context;
+   public CategoryListAdapter(List<String> category){
+       this.mCategory=category;
+
    }
 
     @NonNull
@@ -35,29 +35,22 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
     @Override
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
-       holder.categoryName.getText(Integer.parseInt(category.get(position)));
+       holder.textView3.setText(mCategory.get(position));
 
     }
 
     @Override
     public int getItemCount() {
-        return category.size();
+        return mCategory.size();
     }
 
     public class CategoryViewHolder extends RecyclerView.ViewHolder{
-       @BindView(R.id.textView3) TextView mTextview3;
-       @BindView(R.id.textView4) TextView mTextview4;
-       @BindView(R.id.textView5) TextView mTextview5;
-       @BindView(R.id.textView6) TextView mTextview6;
-       @BindView(R.id.textView7) TextView mTextview7;
-       @BindView(R.id.textView8) TextView mTextview8;
-       Context categoryName;
+          TextView textView3;
 
        public CategoryViewHolder(@NonNull View itemView) {
            super(itemView);
 
-           ButterKnife.bind(this,itemView);
-           categoryName = itemView.getContext();
+           textView3=itemView.findViewById(R.id.textView3);
        }
 
 
