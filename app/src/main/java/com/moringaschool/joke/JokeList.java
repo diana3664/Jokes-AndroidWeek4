@@ -1,6 +1,8 @@
 package com.moringaschool.joke;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -48,7 +50,7 @@ public class JokeList extends AppCompatActivity {
 
         adapter = new CategoryListAdapter(categories);
         ButterKnife.bind(this);
-        mCatList.setLayoutManager(new LinearLayoutManager(this));
+        mCatList.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false));
         mCatList.setAdapter(adapter);
 
 
@@ -57,19 +59,12 @@ public class JokeList extends AppCompatActivity {
         mJokeView.setText("Hello" +" "+ name+" " +",Joke Categories Include:" );
         ButterKnife.bind(this);
 
-//        JokeApi client = JokeClient.getClient();
-//        Call<CategoriesSearchResponse> call = client.getCategories(Constants.Categories_URL);
-//
-//        call.enqueue(new Callback<CategoriesSearchResponse>() {
-//            @Override
-//            public void onResponse(Call<CategoriesSearchResponse> call, Response<CategoriesSearchResponse> response) {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(Call<CategoriesSearchResponse> call, Throwable t) {
-//
-//            }
-//        });
+
+
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment());
+        transaction.commitNow();
+
+
     }
 }
