@@ -9,7 +9,10 @@ Application that gives you a category list of jokes from animal jokes to knock k
 ## TECHNOLOGIES 
 
 java
+
 android-studio
+
+retrofit
 
 
 ## SET UP 
