@@ -45,11 +45,11 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
     public void onBindViewHolder(@NonNull CategoryViewHolder holder, int position) {
        holder.textView3.setText(mCategory.get(position));
        if(positionOfCard  == position){
-           //set red
+           //set red color when clicked
            holder.cardItem.setCardBackgroundColor(Color.RED);
 
        }else {
-           //set white
+           //set yellow when not clicked
            holder.cardItem.setCardBackgroundColor(Color.YELLOW);
        }
 
@@ -79,6 +79,7 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
            positionOfCard = getAdapterPosition();
            notifyItemChanged(positionOfCard);
 
+            //call our fragment when our category is clicked
            if(mCategory.get(positionOfCard).equals("Any")){
                AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
