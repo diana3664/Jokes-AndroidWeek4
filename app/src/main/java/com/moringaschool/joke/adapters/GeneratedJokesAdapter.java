@@ -33,7 +33,7 @@ public class GeneratedJokesAdapter extends RecyclerView.Adapter<GeneratedJokesAd
             holder.firstLine.setText(allJokes.get(position).getJoke());
             holder.secondLine.setText("");
         }else{
-            holder.firstLine.setText(allJokes.get(position).getJoke());
+            holder.firstLine.setText(allJokes.get(position).getSetUp());
             holder.secondLine.setText(allJokes.get(position).getDelivery());
         }
 

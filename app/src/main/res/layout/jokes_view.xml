@@ -18,19 +18,21 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="161dp"
-            android:layout_height="match_parent">
+            android:layout_width="271dp"
+            android:layout_height="273dp">
 
             <TextView
                 android:id="@+id/firstLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="76dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="5dp"
+                android:paddingStart="5dp"
                 android:text="TextView"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/secondLine"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,11 +40,14 @@
                 android:id="@+id/secondLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="76dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="3dp"
+                android:paddingStart="5dp"
                 android:text="TextView"
+                android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/firstLine" />
         </androidx.constraintlayout.widget.ConstraintLayout>

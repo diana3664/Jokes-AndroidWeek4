@@ -83,43 +83,43 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
                AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                FragmentManager manager = activity.getSupportFragmentManager();
-               FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Any?amount=1"));
+               FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Any?amount=2"));
                transaction.commitNow();           }
             if(mCategory.get(positionOfCard).equals("Programming")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Programming?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Programming?amount=2"));
                 transaction.commitNow();                }
             if(mCategory.get(positionOfCard).equals("Miscellaneous")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Miscellaneous?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Miscellaneous?amount=2"));
                 transaction.commitNow();                }
             if(mCategory.get(positionOfCard).equals("Dark")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Dark?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Dark?amount=2"));
                 transaction.commitNow();                }
             if(mCategory.get(positionOfCard).equals("Pun")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Pun?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Pun?amount=2"));
                 transaction.commitNow();                }
             if(mCategory.get(positionOfCard).equals("Spooky")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Spooky?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Spooky?amount=2"));
                 transaction.commitNow();                }
             if(mCategory.get(positionOfCard).equals("Christmas")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
                 FragmentManager manager = activity.getSupportFragmentManager();
-                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Christmas?amount=1"));
+                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Christmas?amount=2"));
                 transaction.commitNow();                }
 
         }

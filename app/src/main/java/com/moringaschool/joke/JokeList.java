@@ -63,7 +63,7 @@ public class JokeList extends AppCompatActivity {
 
 
         FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(getResources().getString(R.string.Url)+"Any?amount=1"));
+        FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(getResources().getString(R.string.Url)+"Any?amount=2"));
         transaction.commitNow();
 
 
