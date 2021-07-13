@@ -3,7 +3,7 @@ Jokes Joke
 
 ## DESCRIPTION
 
-Application that gives you a category list of jokes from animal jokes to knock knock jokes .Make your day interesting
+A joke application that uses an api to display different categories of jokes .The categories are Pun,any,programming,spooky,Dark and Christmas
 
 
 ## TECHNOLOGIES 
