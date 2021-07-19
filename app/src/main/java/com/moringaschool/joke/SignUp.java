@@ -1,5 +1,6 @@
 package com.moringaschool.joke;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -27,6 +29,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.cofirmPassword) EditText mConfirmPassword;
     @BindView(R.id.loginTextView) TextView mLoginTextView;
     private FirebaseAuth mAuth; //creating user in Firebase
+    private FirebaseAuth.AuthStateListener mAuthListener;//inform our application when the user's account is successfully authenticated.
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +43,27 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
         mViewJokesButton.setOnClickListener(this);
         mLoginTextView.setOnClickListener(this);
+
+        createAuthStateListener();
+        
     }
+
+    private void createAuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Intent intent = new Intent(SignUp.this,JokeList.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+
+            }
+        }
+    }
+
     @Override
     public void onClick(View v) {
         if(v == mViewJokesButton) {
