@@ -10,13 +10,18 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
+
+import java.util.Objects;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,9 +35,12 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.password) EditText mPassword;
     @BindView(R.id.cofirmPassword) EditText mConfirmPassword;
     @BindView(R.id.loginTextView) TextView mLoginTextView;
+    @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
+    @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
     private FirebaseAuth mAuth; //creating user in Firebase
     private FirebaseAuth.AuthStateListener mAuthListener;//inform our application when the user's account is successfully authenticated.
     private String mName;
+
 
 
     @Override
@@ -48,6 +56,16 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
         createAuthStateListener();
         
+    }
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setText("Sign Up process in Progress");
+    }
+
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
+        mLoadingSignUp.setVisibility(View.GONE);
     }
 
     @Override
@@ -75,18 +93,20 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         final String email = mSignEditText2.getText().toString().trim();
          String password = mPassword.getText().toString().trim();
          String confirmPassword = mConfirmPassword.getText().toString().trim();
-        mName = mSignEditText.getText().toString().trim();
+         mName = mSignEditText.getText().toString().trim();
 
         boolean validmName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validName || !validPassword) return;
+        showProgressBar();
 
 
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this,task -> {
+                    hideProgressBar();
                     if(task.isSuccessful()){
                         Log.d(TAG, "Authentication successful");
                     }else {
@@ -144,6 +164,26 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
         };
         }
+
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mName)
+                .build();
+
+        user.updateProfile(addProfileName)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Log.d(TAG, Objects.requireNonNull(user.getDisplayName()));
+                            Toast.makeText(SignUp.this, "The display name has ben set", Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                });
+    }
 
 
 
