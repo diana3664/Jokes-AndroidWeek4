@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.moringaschool.Constants;
 import com.moringaschool.joke.adapters.GeneratedJokesAdapter;
 import com.moringaschool.joke.models.Joke;
 
@@ -41,6 +45,7 @@ String jokeApiURL ;
 RecyclerView jokesListUpdated; //implement our recycler view for our joke
 GeneratedJokesAdapter adapter; //instance of our adapter
     List<Joke> allJokes;
+    //@BindView(R.id.saveJokeButton) Button mSaveJokeButton;
 
 
 public JokeDetailFragment(String url){
@@ -61,8 +66,13 @@ public JokeDetailFragment(String url){
         jokesListUpdated = v.findViewById(R.id.recyclerJokeList);
         jokesListUpdated.setLayoutManager(new LinearLayoutManager(v.getContext()));
         getJokes(jokeApiURL);//pass the url to our getJokes method
+
         adapter = new GeneratedJokesAdapter(allJokes);//send our jokes to the adapter
         jokesListUpdated.setAdapter(adapter);//our connected recycler view to our  adapter
+      //  ButterKnife.bind(this,v);
+
+
+
 
         return v;
     }
@@ -109,4 +119,17 @@ public JokeDetailFragment(String url){
 
         queue.add(objectRequest);
     }
+
+//    @Override
+//    public void onClick(View v) {
+//    if(v==mSaveJokeButton){
+//        DatabaseReference restaurantRef = FirebaseDatabase
+//                .getInstance()
+//                .getReference(Constants.FIREBASE_CHILD_JOKES);
+//        restaurantRef.push().setValue(mSaveJokeButton);
+//        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+//
+//    }
+//
+//    }
 }

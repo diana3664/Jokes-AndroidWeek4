@@ -7,6 +7,10 @@ public class Joke {
     private String delivery;
     private String joke;
 
+
+    public Joke () {
+
+    }
     public String getType() {
         return type;
     }
@@ -38,4 +42,6 @@ public class Joke {
     public void setJoke(String joke) {
         this.joke = joke;
     }
+
+
 }
