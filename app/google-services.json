@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "574169399565",
+    "project_id": "myjokesip",
+    "storage_bucket": "myjokesip.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:574169399565:android:3070ee4a4f85c4d7a63044",
+        "android_client_info": {
+          "package_name": "com.moringaschool.joke"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "574169399565-csuv6oda1265imcpu83as9mptvvf4bg7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATYPeT8ESlzhT_fi827nuDzyyb_DJBdXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "574169399565-csuv6oda1265imcpu83as9mptvvf4bg7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
