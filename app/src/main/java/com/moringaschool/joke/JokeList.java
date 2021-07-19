@@ -88,4 +88,7 @@ public class JokeList extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private void logout() {
+    }
 }
