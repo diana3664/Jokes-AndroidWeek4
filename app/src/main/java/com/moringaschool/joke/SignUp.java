@@ -13,6 +13,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -48,41 +50,9 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         
     }
 
-    private void createAuthStateListener() {
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                final FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    Intent intent = new Intent(SignUp.this,JokeList.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    finish();
-                }
-
-            }
-        }
-    }
-
     @Override
     public void onClick(View v) {
-        if(v == mViewJokesButton) {
-//            if(mSignEditText.length()==0){
-//                mSignEditText.setError("Enter your name");
-//            }else if (mSignEditText2.length() == 0){
-//                mSignEditText2.setError("Enter email");
-//            }else {
-//                String name = mSignEditText.getText().toString();
-//                Log.d(TAG, name);
-//                validateEmail(mSignEditText2);
-//                Intent intent = new Intent(SignUp.this, JokeList.class);
-//                intent.putExtra("name", name);
-//                startActivity(intent);
-//            }
 
-            createNewUser();
-
-        }
         if(v==mLoginTextView){
             Intent intent = new Intent(SignUp.this, LoginActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -90,7 +60,15 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
             finish();
         }
 
+        if(v == mViewJokesButton) { //sign up button
+
+            createNewUser();
+
+        }
+
+
     }
+
 
     private void createNewUser() {
         final String name = mSignEditText.getText().toString().trim();
@@ -108,15 +86,40 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 });
     }
 
-    private boolean validateEmail(EditText mSignEditText2){
-        String email = mSignEditText2.getText().toString();
-        if (Patterns.EMAIL_ADDRESS.matcher(email).matches()){
-            Toast.makeText(this,"Email validated sucesfully",Toast.LENGTH_SHORT).show();
-            return true;
 
-        }else{
-            Toast.makeText(this,"Invalid Email",Toast.LENGTH_SHORT).show();
-            return false;
+    private void createAuthStateListener() {
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Intent intent = new Intent(SignUp.this, JokeList.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+
+        };
+        }
+
+
+
+
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mAuthListener != null){
+            mAuth.removeAuthStateListener(mAuthListener);
         }
     }
+
 }
