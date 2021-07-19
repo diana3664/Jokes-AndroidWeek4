@@ -81,6 +81,8 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
+
 
 
         mAuth.createUserWithEmailAndPassword(email,password)
