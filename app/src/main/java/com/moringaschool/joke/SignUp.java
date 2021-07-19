@@ -32,7 +32,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     @BindView(R.id.loginTextView) TextView mLoginTextView;
     private FirebaseAuth mAuth; //creating user in Firebase
     private FirebaseAuth.AuthStateListener mAuthListener;//inform our application when the user's account is successfully authenticated.
-
+    private String mName;
 
 
     @Override
@@ -73,8 +73,15 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
     private void createNewUser() {
         final String name = mSignEditText.getText().toString().trim();
         final String email = mSignEditText2.getText().toString().trim();
-        final String password = mPassword.getText().toString().trim();
-        final String confirmPassword = mConfirmPassword.getText().toString().trim();
+         String password = mPassword.getText().toString().trim();
+         String confirmPassword = mConfirmPassword.getText().toString().trim();
+        mName = mSignEditText.getText().toString().trim();
+
+        boolean validmName = isValidName(mName);
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(name);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this,task -> {
@@ -86,6 +93,34 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 });
     }
 
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if(password.length() < 6){
+            mConfirmPassword.setError("Please create a password containing at least 6 characters");
+            return false;
+        } else if (!password.equals(confirmPassword)){
+            mConfirmPassword.setError("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail = (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if(!isGoodEmail){
+            mSignEditText2.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String name) {
+        if(name.equals("")){
+            mSignEditText.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+
 
     private void createAuthStateListener() {
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -95,10 +130,14 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                 final FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     Intent intent = new Intent(SignUp.this, JokeList.class);
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
+                    Log.e(TAG,"User was signed " + user );
+                  //  Toast.makeText(SignUp.this, "User is not null", Toast.LENGTH_SHORT).show();
+                   intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                   startActivity(intent);
                     finish();
-                }
+                }else
+                    Toast.makeText(SignUp.this, "User is null", Toast.LENGTH_SHORT).show();
+
             }
 
         };

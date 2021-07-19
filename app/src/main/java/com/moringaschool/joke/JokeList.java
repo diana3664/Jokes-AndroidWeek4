@@ -18,6 +18,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.moringaschool.joke.adapters.CategoryListAdapter;
 
 import java.util.ArrayList;
@@ -90,5 +91,11 @@ public class JokeList extends AppCompatActivity {
     }
 
     private void logout() {
+
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(JokeList.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
