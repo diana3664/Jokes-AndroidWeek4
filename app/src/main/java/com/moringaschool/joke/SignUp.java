@@ -109,6 +109,7 @@ public class SignUp extends AppCompatActivity implements View.OnClickListener{
                     hideProgressBar();
                     if(task.isSuccessful()){
                         Log.d(TAG, "Authentication successful");
+                        createFirebaseUserProfile(Objects.requireNonNull(task.getResult().getUser()));
                     }else {
                         Toast.makeText(SignUp.this, "Authentification failed", Toast.LENGTH_SHORT).show();
                     }
