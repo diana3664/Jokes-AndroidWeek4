@@ -120,16 +120,4 @@ public JokeDetailFragment(String url){
         queue.add(objectRequest);
     }
 
-//    @Override
-//    public void onClick(View v) {
-//    if(v==mSaveJokeButton){
-//        DatabaseReference restaurantRef = FirebaseDatabase
-//                .getInstance()
-//                .getReference(Constants.FIREBASE_CHILD_JOKES);
-//        restaurantRef.push().setValue(mSaveJokeButton);
-//        Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-//
-//    }
-//
-//    }
 }
