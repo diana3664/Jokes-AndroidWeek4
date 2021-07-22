@@ -12,13 +12,13 @@ java
 
 android-studio
 
-retrofit
+Volley
 
 
 ## SET UP 
 
 For this project Fork the project,git clone and run in android studio
-`gitclone https://github.com/diana3664/Jokes-AndroidWeek1.git`
+`https://github.com/diana3664/Jokes-AndroidWeek3`
 
 ## URL
 
