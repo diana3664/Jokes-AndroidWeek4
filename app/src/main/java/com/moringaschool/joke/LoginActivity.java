@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +19,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.moringaschool.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +38,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private FirebaseAuth mAuth;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +48,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
 
         mAuth = FirebaseAuth.getInstance();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this); //define mshared preference
+        mEditor = mSharedPreferences.edit();//define mshared preference
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -71,13 +78,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             finish();
         }
         if (view == mPasswordLoginButton) {
+            String email = mEmailEditText.getText().toString().trim();//add mshared preference
+            addToSharedPreferences(email);//add mshared preference
             loginWithPassword();
         }
 
     }
 
     private void loginWithPassword() {
-        String email = mEmailEditText.getText().toString().trim();
+        String email = mEmailEditText.getText().toString().trim();//add mshared preference
+        addToSharedPreferences(email);//add mshared preference
         String password = mPasswordEditText.getText().toString().trim();
         if (email.equals("")) {
             mEmailEditText.setError("Please enter your email");
@@ -103,6 +113,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 });
 
     }
+//constructor for mshared preference
+    private void addToSharedPreferences(String email) {
+        mEditor.putString(Constants.PREFERENCES_EMAIL_KEY, email).apply();
+    }
+
+
 
     @Override
     public void onStart() {

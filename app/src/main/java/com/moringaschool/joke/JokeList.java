@@ -9,7 +9,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,6 +24,7 @@ import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.moringaschool.Constants;
 import com.moringaschool.joke.adapters.CategoryListAdapter;
 
 import java.util.ArrayList;
@@ -40,6 +44,9 @@ public class JokeList extends AppCompatActivity {
     CategoryListAdapter adapter;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+//test the mshared preference
+    private SharedPreferences mSharedPreferences;
+    private String mRecentAddress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +77,7 @@ public class JokeList extends AppCompatActivity {
 
 
 
+
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(getResources().getString(R.string.Url)+"Any?amount=2"));
         transaction.commitNow();
@@ -87,6 +95,11 @@ public class JokeList extends AppCompatActivity {
                 }
             }
         };
+
+
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);// retrieve our shared preferences from the preference manager
+        mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_EMAIL_KEY, null);//pull data from it by calling getString()
+        Log.d("Shared Pref Location", mRecentAddress);
     }
 
 
