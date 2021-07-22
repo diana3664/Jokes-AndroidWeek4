@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +36,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     EditText mEmailEditText;
     @BindView(R.id.passwordEditText)
     EditText mPasswordEditText;
+    @BindView(R.id.firebaseProgressBar)
+            //for progress bar
+    ProgressBar mSignInProgressBar;
+    @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     private FirebaseAuth mAuth;
@@ -81,8 +86,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String email = mEmailEditText.getText().toString().trim();//add mshared preference
             addToSharedPreferences(email);//add mshared preference
             loginWithPassword();
+            showProgressBar();
         }
 
+    }
+
+    private void showProgressBar() {
+        mSignInProgressBar.setVisibility(View.VISIBLE);
+        mLoadingSignUp.setVisibility(View.VISIBLE);
+        //mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mLoadingSignUp.setText("Log in you in");
+    }
+    private void hideProgressBar() {
+        mSignInProgressBar.setVisibility(View.GONE);
+        mLoadingSignUp.setVisibility(View.GONE);
     }
 
     private void loginWithPassword() {
@@ -104,6 +121,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
+                        hideProgressBar();
                         if (!task.isSuccessful()) {
                             Log.w(TAG, "signInWithEmail", task.getException());
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
