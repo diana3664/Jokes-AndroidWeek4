@@ -104,10 +104,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void loginWithPassword() {
         String email = mEmailEditText.getText().toString().trim();//add mshared preference
-        addToSharedPreferences(email);//add mshared preference
+
         String password = mPasswordEditText.getText().toString().trim();
         if (email.equals("")) {
             mEmailEditText.setError("Please enter your email");
+            addToSharedPreferences(email);//add mshared preference
             return;
         }
         if (password.equals("")) {

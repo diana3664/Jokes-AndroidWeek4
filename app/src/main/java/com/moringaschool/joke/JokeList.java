@@ -100,6 +100,7 @@ public class JokeList extends AppCompatActivity {
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);// retrieve our shared preferences from the preference manager
         mRecentAddress = mSharedPreferences.getString(Constants.PREFERENCES_EMAIL_KEY, null);//pull data from it by calling getString()
         Log.d("Shared Pref Location", mRecentAddress);
+        String email = mRecentAddress;//pass the email  stored in our sharedPreference as the current email.
     }
 
 
