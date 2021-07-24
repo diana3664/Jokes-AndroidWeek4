@@ -8,13 +8,14 @@
 
     <ImageView
         android:id="@+id/picView"
-        android:layout_width="939dp"
-        android:layout_height="1050dp"
+        android:layout_width="430dp"
+        android:layout_height="343dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.57"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.237"
+        app:layout_constraintVertical_bias="0.313"
         app:srcCompat="@drawable/inteviewjoke" />
 
     <Button
