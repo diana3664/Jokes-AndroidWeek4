@@ -38,6 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         buttomAnim = AnimationUtils.loadAnimation(this,R.anim.buttom_animation);
 
+        mAppNameTextView1.setAnimation(topAnim);
+        mAppNameTextView2.setAnimation(topAnim);
+        mAppNameTextView3.setAnimation(topAnim);
+        mLoginButton.setAnimation(buttomAnim);
+        msignUpButton.setAnimation(buttomAnim);
+
     }
     @Override
     public void onClick(View v) {
