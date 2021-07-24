@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Joke">
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name="com.moringaschool.JokeImage"></activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".JokeList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
