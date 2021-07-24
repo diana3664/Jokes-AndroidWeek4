@@ -1,6 +1,7 @@
 package com.moringaschool.joke.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +16,12 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringaschool.JokeImage;
 import com.moringaschool.joke.JokeDetailFragment;
 import com.moringaschool.joke.JokeList;
+import com.moringaschool.joke.LoginActivity;
 import com.moringaschool.joke.R;
+import com.moringaschool.joke.SignUp;
 
 import java.util.List;
 
@@ -122,6 +126,10 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
                 FragmentManager manager = activity.getSupportFragmentManager();
                 FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Christmas?amount=2"));
                 transaction.commitNow();                }
+            if (mCategory.get(positionOfCard).equals("Joke Image")){
+                AppCompatActivity activity = (AppCompatActivity) v.getContext();
+                activity.startActivity(new Intent(activity, JokeImage.class));
+            }
 
         }
     }
