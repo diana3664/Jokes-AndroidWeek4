@@ -3,7 +3,7 @@ Jokes Joke
 
 ## DESCRIPTION
 
-A joke application that uses an api to display different categories of jokes .The categories are Pun,any,programming,spooky,Dark and Christmas
+A joke application that uses an api to display different categories of jokes .The categories are Pun,any,programming,spooky,Dark and Christmas.With animations included
 
 
 ## TECHNOLOGIES 
@@ -14,11 +14,13 @@ android-studio
 
 Volley
 
+Yoyo library
+
 
 ## SET UP 
 
 For this project Fork the project,git clone and run in android studio
-`https://github.com/diana3664/Jokes-AndroidWeek3`
+`https://github.com/diana3664/Jokes-AndroidWeek4`
 
 ## URL
 
