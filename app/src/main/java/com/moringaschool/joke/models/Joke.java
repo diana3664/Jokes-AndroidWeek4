@@ -1,6 +1,9 @@
 package com.moringaschool.joke.models;
 
+import org.parceler.Parcel;
+
 //for our recycler view GeneratedJokesAdapter
+@Parcel
 public class Joke {
     private String type;
     private String setUp;

@@ -61,6 +61,7 @@ public class JokeList extends AppCompatActivity {
         categories.add("Pun");
         categories.add("Spooky");
         categories.add("Christmas");
+        categories.add("Joke Image"); //add a joke image to our category list
 
 
         Context mContext;

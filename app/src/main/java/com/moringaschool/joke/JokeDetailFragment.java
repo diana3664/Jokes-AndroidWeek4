@@ -45,7 +45,6 @@ String jokeApiURL ;
 RecyclerView jokesListUpdated; //implement our recycler view for our joke
 GeneratedJokesAdapter adapter; //instance of our adapter
     List<Joke> allJokes;
-    //@BindView(R.id.saveJokeButton) Button mSaveJokeButton;
 
 
 public JokeDetailFragment(String url){
@@ -69,7 +68,7 @@ public JokeDetailFragment(String url){
 
         adapter = new GeneratedJokesAdapter(allJokes);//send our jokes to the adapter
         jokesListUpdated.setAdapter(adapter);//our connected recycler view to our  adapter
-      //  ButterKnife.bind(this,v);
+
 
 
 
@@ -119,5 +118,7 @@ public JokeDetailFragment(String url){
 
         queue.add(objectRequest);
     }
+
+
 
 }
