@@ -89,7 +89,8 @@ public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapte
 
                FragmentManager manager = activity.getSupportFragmentManager();
                FragmentTransaction transaction = manager.beginTransaction().replace(R.id.fragmentContainerView,new JokeDetailFragment(activity.getResources().getString(R.string.Url)+"Any?amount=2"));
-               transaction.commitNow();           }
+               transaction.commitNow();
+           }
             if(mCategory.get(positionOfCard).equals("Programming")){
                 AppCompatActivity activity = (AppCompatActivity) v.getContext();
 
