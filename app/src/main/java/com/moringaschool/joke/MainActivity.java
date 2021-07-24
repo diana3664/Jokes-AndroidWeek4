@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -15,6 +18,12 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @BindView (R.id.signUpButton) Button msignUpButton;
     @BindView(R.id.LoginInButton) Button mLoginButton;
+    @BindView(R.id.appNameTextView1) TextView mAppNameTextView1;
+    @BindView(R.id.appNameTextView2) TextView mAppNameTextView2;
+    @BindView(R.id.appNameTextView3) TextView mAppNameTextView3;
+    //variables
+    Animation topAnim, buttomAnim;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +33,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         msignUpButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
+
+        //animations
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        buttomAnim = AnimationUtils.loadAnimation(this,R.anim.buttom_animation);
+
     }
     @Override
     public void onClick(View v) {
